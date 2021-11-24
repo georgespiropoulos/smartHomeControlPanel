@@ -19,7 +19,7 @@ public class SmartHomeControlPanel extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("smarthome.fxml"));
-        
+        // test commend from george 2
         Scene scene = new Scene(root);
         
         stage.setScene(scene);

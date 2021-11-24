@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+
+
+<Pane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane id="header" layoutX="10.0" layoutY="17.0" prefHeight="47.0" prefWidth="780.0">
+         <children>
+            <AnchorPane id="title" prefHeight="47.0" prefWidth="305.0">
+               <children>
+                  <Label id="titleTxt" layoutX="38.0" layoutY="15.0" prefHeight="47.0" prefWidth="305.0" text="Home Control" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane id="date-time" layoutX="430.0" prefHeight="47.0" prefWidth="350.0">
+               <children>
+                  <AnchorPane id="date" prefHeight="47.0" prefWidth="160.0">
+                     <children>
+                        <Label id="dateTxt" layoutX="66.0" layoutY="15.0" prefHeight="47.0" prefWidth="160.0" text="Date" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="time" layoutX="190.0" prefHeight="47.0" prefWidth="160.0">
+                     <children>
+                        <Label id="timeTxt" layoutX="40.0" layoutY="15.0" prefHeight="47.0" prefWidth="160.0" text="Time" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+      <Pane id="menu" layoutY="100.0" prefHeight="310.0" prefWidth="190.0">
+         <children>
+            <AnchorPane id="retPos" prefHeight="70.0" prefWidth="190.0">
+               <children>
+                  <Button id="retButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" text="Return" />
+               </children>
+            </AnchorPane>
+            <AnchorPane id="tempPos" layoutY="80.0" prefHeight="70.0" prefWidth="190.0">
+               <children>
+                  <Button id="tempButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" text="Temperature" />
+               </children>
+            </AnchorPane>
+            <AnchorPane id="lightsPos" layoutY="160.0" prefHeight="70.0" prefWidth="190.0">
+               <children>
+                  <Button id="lightsButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" text="Lights" />
+               </children>
+            </AnchorPane>
+            <AnchorPane id="doorsPos" layoutY="240.0" prefHeight="70.0" prefWidth="190.0">
+               <children>
+                  <Button id="doorsButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" text="Doors Windows" />
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+      <Pane id="homeLayout" layoutX="210.0" layoutY="80.0" prefHeight="360.0" prefWidth="550.0">
+         <children>
+            <Line id="northWallHorizontal1" endX="295.0" endY="80.0" startX="94.0" startY="80.0" />
+            <Line id="northWallVertical" endX="-100.0" endY="60.0" layoutX="396.0" layoutY="80.0" startX="-100.0" />
+            <Line id="northWallHorizontal2" endX="60.0" layoutX="397.0" layoutY="140.0" startX="-100.0" />
+            <Line id="eastWall" endX="-100.0" endY="170.0" layoutX="558.0" layoutY="140.0" startX="-100.0" />
+            <Line id="southWall" endX="100.0" layoutX="356.0" layoutY="310.0" startX="-262.0" />
+            <Line id="westWall" endX="-80.5" endY="182.5" layoutX="174.0" layoutY="127.0" startX="-80.5" startY="-47.0" />
+            <Line id="bedroomHorizontalWall" endX="-6.0" layoutX="194.0" layoutY="168.0" startX="-100.0" />
+            <Line id="bedroomVerticalWall" endX="-100.0" endY="-87.5" layoutX="289.0" layoutY="168.0" startX="-100.0" />
+            <Line id="bathroomHorizontalWall" endX="-6.5" endY="-1.0" layoutX="194.0" layoutY="225.0" startX="-101.0" startY="-1.0" />
+            <Line id="bathroomStorageMidwall" endX="-100.0" endY="83.5" layoutX="288.0" layoutY="226.0" startX="-100.0" />
+            <Line id="storageHorizontalWall" endX="6.0" layoutX="288.0" layoutY="224.0" startX="-100.0" />
+            <Line id="storageKitchenMidwall" endX="-100.0" endY="85.5" layoutX="394.0" layoutY="225.0" startX="-100.0" />
+            <Line id="kitchenLivingroomWall" endX="-4.5" endY="-0.5" layoutX="462.0" layoutY="225.0" startX="-103.5" startY="-0.5" />
+            <Label id="bedroomLbl" layoutX="94.0" layoutY="81.0" opacity="0.4" text="Bedroom" />
+            <Label id="bathroomLbl" layoutX="94.0" layoutY="226.0" opacity="0.4" text="Bathroom" />
+            <Label id="storageLbl" layoutX="190.0" layoutY="226.0" opacity="0.4" text="Storage" />
+            <Label id="hallLbl" layoutX="185.0" layoutY="180.0" opacity="0.4" text="Main Hall" />
+            <Label id="livingroomLbl" layoutX="344.0" layoutY="141.0" opacity="0.4" text="Living Room" />
+            <Label id="kitchenLbl" layoutX="357.0" layoutY="293.0" opacity="0.4" text="Kitchen" />
+            <Label id="gardenLbl" layoutX="363.0" layoutY="102.0" opacity="0.4" text="Garden" />
+         </children>
+      </Pane>
+      <Pane id="footer" layoutX="210.0" layoutY="445.0" prefHeight="25.0" prefWidth="550.0" />
+   </children>
+</Pane>
