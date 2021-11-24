@@ -20,7 +20,7 @@ public class SmartHomeControlPanel extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("smarthome.fxml"));
-        String geotom = "Hello geotom test!";
+       
         Scene scene = new Scene(root);
 //        Image icon = new Image(getClass().getResourceAsStream("/resources/img/smart-home.png"));
 //        stage.getIcons().add(icon);
