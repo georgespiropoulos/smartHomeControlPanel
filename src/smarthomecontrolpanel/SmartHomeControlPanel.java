@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
 
 
 public class SmartHomeControlPanel extends Application {
@@ -15,7 +14,7 @@ public class SmartHomeControlPanel extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("smarthome.fxml"));
         String geotom = "Hello geotom test!";
         Scene scene = new Scene(root);
-//        stage.getIcons().add(new Image(SmartHomeControlPanel.class.getResourceAsStream("/resources/img/smart-home.png")));
+        scene.getStylesheets().add(getClass().getResource("smarthome.css").toExternalForm());
         stage.setTitle("SmartHouse Control Panel");
         stage.setResizable(false);
         stage.setScene(scene);

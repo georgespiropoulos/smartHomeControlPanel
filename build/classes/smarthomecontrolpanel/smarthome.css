@@ -1,0 +1,92 @@
+.root {
+    -fx-font-family: "Roboto";
+    -fx-background-color: white;
+}
+
+.menuButton{
+    -fx-background-color: #5EDDF9;
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.menuButton:disabled{
+    -fx-opacity: 100;
+    -fx-background-color: white;
+    -fx-text-fill: #5EDDF9;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+#titleTxt{
+    -fx-font-family: "Roboto";
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+}
+
+.date{
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-padding: -1;
+}
+
+#timeTxt{
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 40;
+}
+
+#celcius{
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 50;
+}
+
+#tempVal{
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 40;
+    -fx-border-color: black;
+}
+
+#tempSystemButton{
+    -fx-background-color: #20CF27;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+}
+
+#tempSystemButton:selected{
+    -fx-background-color: #FF0505;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+}
+
+.tempAdjusters{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 36;
+    -fx-padding: -10;
+}
+
+#lockButton{
+    -fx-background-color: #20CF27;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 18; 
+}
+
+#lockButton:hover{
+    -fx-background-color: #FF0505;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 18; 
+}
