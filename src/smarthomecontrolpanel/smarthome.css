@@ -16,3 +16,22 @@
     -fx-font-size: 18;
     -fx-font-weight: bold;
 }
+
+#titleTxt{
+    -fx-font-family: "Roboto";
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+}
+
+.date{
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-padding: -1;
+}
+
+#timeTxt{
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-font-size: 40;
+}
