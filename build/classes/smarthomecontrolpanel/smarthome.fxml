@@ -94,7 +94,7 @@
             <Label id="gardenLbl" layoutX="357.0" layoutY="102.0" opacity="0.4" text="Garden" />
          </children>
       </Pane>
-      <Pane id="temperature" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0">
+      <Pane id="temperature" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
          <children>
             <Button id="tempSystemButton" layoutX="430.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" text="On">
                <font>
@@ -391,7 +391,7 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="doors" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
+      <Pane id="doors" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0">
          <children>
             <Pane id="homeLayout" prefHeight="360.0" prefWidth="550.0">
                <children>
@@ -415,9 +415,9 @@
                   <Label id="livingroomLbl" layoutX="344.0" layoutY="141.0" opacity="0.4" text="Living Room" />
                   <Label id="kitchenLbl" layoutX="356.0" layoutY="293.0" opacity="0.4" text="Kitchen" />
                   <Label id="gardenLbl" layoutX="357.0" layoutY="102.0" opacity="0.4" text="Garden" />
-                  <AnchorPane layoutX="432.0" layoutY="2.0" prefHeight="45.0" prefWidth="120.0">
+                  <AnchorPane layoutX="430.0" layoutY="10.0" prefHeight="45.0" prefWidth="120.0">
                      <children>
-                        <Button layoutX="26.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" text="Lock" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Button id="lockButton" layoutX="26.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" text="Lock" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
