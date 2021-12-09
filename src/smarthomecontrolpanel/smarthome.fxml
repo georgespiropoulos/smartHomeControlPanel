@@ -44,22 +44,22 @@
          <children>
             <AnchorPane id="retPos" prefHeight="70.0" prefWidth="190.0">
                <children>
-                  <Button id="retButton" disable="true" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" text="Return" />
+                  <Button id="retButton" disable="true" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Return" />
                </children>
             </AnchorPane>
             <AnchorPane id="tempPos" layoutY="80.0" prefHeight="70.0" prefWidth="190.0">
                <children>
-                  <Button id="tempButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" text="Temperature" />
+                  <Button id="tempButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Temperature" />
                </children>
             </AnchorPane>
             <AnchorPane id="lightsPos" layoutY="160.0" prefHeight="70.0" prefWidth="190.0">
                <children>
-                  <Button id="lightsButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" text="Lights" />
+                  <Button id="lightsButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Lights" />
                </children>
             </AnchorPane>
             <AnchorPane id="doorsPos" layoutY="240.0" prefHeight="70.0" prefWidth="190.0">
                <children>
-                  <Button id="doorsButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" text="Doors Windows" />
+                  <Button id="doorsButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Doors/Windows" />
                </children>
             </AnchorPane>
          </children>

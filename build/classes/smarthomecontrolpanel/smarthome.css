@@ -1,0 +1,22 @@
+.root {
+    -fx-font-family: "Roboto";
+    -fx-background-color: white;
+}
+
+.menuButton{
+    -fx-background-color: #5EDDF9;
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.menuButton:selected{
+    -fx-background-color: white;
+    -fx-text-fill: #5EDDF9;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.title{
+    font-size: 40;
+}

@@ -15,7 +15,7 @@ public class SmartHomeControlPanel extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("smarthome.fxml"));
         
         Scene scene = new Scene(root);
-//        stage.getIcons().add(new Image(SmartHomeControlPanel.class.getResourceAsStream("/resources/img/smart-home.png")));
+        scene.getStylesheets().add(getClass().getResource("smarthome.css").toExternalForm());
         stage.setTitle("SmartHouse Control Panel");
         stage.setResizable(false);
         stage.setScene(scene);
