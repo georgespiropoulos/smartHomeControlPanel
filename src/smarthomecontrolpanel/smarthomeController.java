@@ -350,7 +350,6 @@ public class smarthomeController implements Initializable {
             tempOnOff.setText("On");
             tempInnerPanel.setDisable(true);
             setTempIcons(0);
-            temperature.setText("25");
         }                   
     }
     
