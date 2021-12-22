@@ -71,7 +71,7 @@
             </AnchorPane>
          </children>
       </Pane>
-      <Pane id="homeLayout" fx:id="homePanel" layoutX="210.0" layoutY="80.0" prefHeight="360.0" prefWidth="550.0">
+      <Pane id="homeLayout" fx:id="homePanel" layoutX="210.0" layoutY="80.0" prefHeight="360.0" prefWidth="550.0" visible="false">
          <children>
             <Line id="northWallHorizontal1" endX="295.0" endY="80.0" startX="94.0" startY="80.0" />
             <Line id="northWallVertical" endX="-100.0" endY="60.0" layoutX="396.0" layoutY="80.0" startX="-100.0" />
@@ -265,7 +265,7 @@
             </AnchorPane>
          </children>
       </Pane>
-      <Pane id="lights" fx:id="lightsPanel" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
+      <Pane id="lights" fx:id="lightsPanel" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0">
          <children>
             <Pane id="homeLayout" prefHeight="360.0" prefWidth="550.0">
                <children>
@@ -289,32 +289,32 @@
                   <Label id="livingroomLbl" layoutX="344.0" layoutY="141.0" opacity="0.4" text="Living Room" />
                   <Label id="kitchenLbl" layoutX="356.0" layoutY="293.0" opacity="0.4" text="Kitchen" />
                   <Label id="gardenLbl" layoutX="357.0" layoutY="102.0" opacity="0.4" text="Garden" />
-                  <ImageView id="stirage-light" fitHeight="21.0" fitWidth="18.0" layoutX="232.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="stirage-light" fx:id="storageLight" fitHeight="21.0" fitWidth="18.0" layoutX="232.0" layoutY="257.0" onMouseClicked="#lightStorageClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="livingRoom-light" fitHeight="21.0" fitWidth="18.0" layoutX="377.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="livingRoom-light" fx:id="livingRoomLight" fitHeight="21.0" fitWidth="18.0" layoutX="377.0" layoutY="172.0" onMouseClicked="#lightLivingRoomClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="bathroom-light" fitHeight="21.0" fitWidth="18.0" layoutX="131.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="bathroom-light" fx:id="bathroomLight" fitHeight="21.0" fitWidth="18.0" layoutX="131.0" layoutY="257.0" onMouseClicked="#lightBathroomClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="bedroom-light" fitHeight="21.0" fitWidth="18.0" layoutX="131.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="bedroom-light" fx:id="bedroomLight" fitHeight="21.0" fitWidth="18.0" layoutX="131.0" layoutY="116.0" onMouseClicked="#lightBedroomClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="garden-light" fitHeight="21.0" fitWidth="18.0" layoutX="317.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="garden-light" fx:id="gardenLight" fitHeight="21.0" fitWidth="18.0" layoutX="317.0" layoutY="102.0" onMouseClicked="#lightGardenClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="kitchen-light" fitHeight="21.0" fitWidth="18.0" layoutX="377.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="kitchen-light" fx:id="kitchenLight" fitHeight="21.0" fitWidth="18.0" layoutX="377.0" layoutY="257.0" onMouseClicked="#lightKitchenClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
@@ -324,7 +324,7 @@
                         <Image url="@resources/img/lightbulb-unknown.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="backyard-light" fitHeight="21.0" fitWidth="18.0" layoutX="67.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="backyard-light" fx:id="backYardLight" fitHeight="21.0" fitWidth="18.0" layoutX="67.0" layoutY="183.0" onMouseClicked="#lightBackyardClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>

@@ -110,6 +110,34 @@ public class smarthomeController implements Initializable {
     private Label temperature;
     
     @FXML
+    private ImageView bedroomLight;
+    private boolean bdLightState = false;
+    
+    @FXML
+    private ImageView livingRoomLight;
+    private boolean lrLightState = false;
+    
+    @FXML
+    private ImageView gardenLight;
+    private boolean grdLightState = false;
+    
+    @FXML
+    private ImageView kitchenLight;
+    private boolean kLightState = false;
+    
+    @FXML
+    private ImageView bathroomLight;
+    private boolean bthLightState = false;
+    
+    @FXML
+    private ImageView storageLight;
+    private boolean sLightState = false;
+    
+    @FXML
+    private ImageView backYardLight;
+    private boolean byLightState = false;
+    
+    @FXML
     public void homeClicked(){
         homeButton.setDisable(true);
         homePanel.setVisible(true);
@@ -222,6 +250,56 @@ public class smarthomeController implements Initializable {
     private void changeThermalIcon(ImageView img, boolean state){
         Image on = new Image(getClass().getResource("resources/img/thermal-on.png").toString(), true);
         Image off = new Image(getClass().getResource("resources/img/thermal-off.png").toString(), true);
+        
+        if (state) img.setImage(off);
+        else img.setImage(on);
+    }
+    
+    @FXML
+    public void lightBedroomClicked(){
+        changeLightIcon(bedroomLight, bdLightState);
+        bdLightState = changeState(bdLightState);
+    }
+    
+    @FXML
+    public void lightBathroomClicked(){
+        changeLightIcon(bathroomLight, bthLightState);
+        bthLightState = changeState(bthLightState);
+    }
+    
+    @FXML
+    public void lightLivingRoomClicked(){
+        changeLightIcon(livingRoomLight, lrLightState);
+        lrLightState = changeState(lrLightState);
+    }
+    
+    @FXML
+    public void lightKitchenClicked(){
+        changeLightIcon(kitchenLight, kLightState);
+        kLightState = changeState(kLightState);
+    }
+    
+    @FXML
+    public void lightStorageClicked(){
+        changeLightIcon(storageLight, sLightState);
+        sLightState = changeState(sLightState);
+    }
+    
+    @FXML
+    public void lightGardenClicked(){
+        changeLightIcon(gardenLight, grdLightState);
+        grdLightState = changeState(grdLightState);
+    }
+    
+    @FXML
+    public void lightBackyardClicked(){
+        changeLightIcon(backYardLight, byLightState);
+        byLightState = changeState(byLightState);
+    }
+    
+    private void changeLightIcon(ImageView img, boolean state){
+        Image on = new Image(getClass().getResource("resources/img/lightbulb-on.png").toString(), true);
+        Image off = new Image(getClass().getResource("resources/img/lightbulb-off.png").toString(), true);
         
         if (state) img.setImage(off);
         else img.setImage(on);
