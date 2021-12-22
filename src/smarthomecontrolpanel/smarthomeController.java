@@ -16,8 +16,11 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 
 /**
@@ -60,6 +63,53 @@ public class smarthomeController implements Initializable {
     private Pane doorsPanel;
     
     @FXML
+    private Pane tempInnerPanel;
+    
+    @FXML
+    private ImageView thermometer;
+    
+    @FXML
+    private ImageView thermalMainHall1;
+    private boolean tMH1State = false;
+    
+    @FXML
+    private ImageView thermalMainHall2;
+    private boolean tMH2State = false;
+    
+    @FXML
+    private ImageView thermalLivingRoom;
+    private boolean tLRState = false;
+    
+    @FXML
+    private ImageView thermalKitchen;
+    private boolean tKState = false;
+    
+    @FXML
+    private ImageView thermalStorage;
+    private boolean tSState = false;
+    
+    @FXML
+    private ImageView thermalBathroom;
+    private boolean tBthState = false;
+    
+    @FXML
+    private ImageView thermalBedroom;
+    private boolean tBdState = false;
+    
+    @FXML
+    private ToggleButton tempOnOff;
+    private boolean onOffState = false;
+    
+    @FXML
+    private Button tempPlusButton;
+    
+    @FXML 
+    private Button tempMinusButton;
+    
+    @FXML
+    private Label temperature;
+    
+    @FXML
     public void homeClicked(){
         homeButton.setDisable(true);
         homePanel.setVisible(true);
@@ -68,7 +118,7 @@ public class smarthomeController implements Initializable {
         lightsButton.setDisable(false);
         lightsPanel.setVisible(false);
         doorsButton.setDisable(false);
-        doorsPanel.setVisible(false);        
+        doorsPanel.setVisible(false);
     }
     
     @FXML
@@ -80,7 +130,7 @@ public class smarthomeController implements Initializable {
         lightsButton.setDisable(false);
         lightsPanel.setVisible(false);
         doorsButton.setDisable(false);
-        doorsPanel.setVisible(false);        
+        doorsPanel.setVisible(false);
     }
     
     @FXML
@@ -92,7 +142,7 @@ public class smarthomeController implements Initializable {
         lightsButton.setDisable(true);
         lightsPanel.setVisible(true);
         doorsButton.setDisable(false);
-        doorsPanel.setVisible(false);        
+        doorsPanel.setVisible(false);
     }
     
     @FXML
@@ -104,12 +154,128 @@ public class smarthomeController implements Initializable {
         lightsButton.setDisable(false);
         lightsPanel.setVisible(false);
         doorsButton.setDisable(true);
-        doorsPanel.setVisible(true);        
+        doorsPanel.setVisible(true);
     }
 
+    private void setTempIcons(int i){
+        
+        Image thermo;
+        Image thermal;
+        
+        if (i == 1){
+            thermo = new Image(getClass().getResource("resources/img/thermometer.png").toString(), true);
+            thermal = new Image(getClass().getResource("resources/img/thermal-off.png").toString(), true);
+        }else{
+            thermo = new Image(getClass().getResource("resources/img/thermometerDisabled.png").toString(), true);
+            thermal = new Image(getClass().getResource("resources/img/thermal-disabled.png").toString(), true);
+        }
+        
+        thermometer.setImage(thermo);
+        thermalMainHall1.setImage(thermal);
+        thermalMainHall2.setImage(thermal);
+        thermalLivingRoom.setImage(thermal);
+        thermalKitchen.setImage(thermal);
+        thermalStorage.setImage(thermal);
+        thermalBathroom.setImage(thermal);
+        thermalBedroom.setImage(thermal);
+    }
+    
+    @FXML
+    public void thermalMainHall1Clicked(){
+        changeThermalIcon(thermalMainHall1, tMH1State);
+        tMH1State = changeState(tMH2State);
+    }
+    
+    @FXML
+    public void thermalMainHall2Clicked(){
+        changeThermalIcon(thermalMainHall2, tMH2State);
+        tMH2State = changeState(tMH2State);
+    }
+    
+    @FXML
+    public void thermalLivingRoomClicked(){
+        changeThermalIcon(thermalLivingRoom, tLRState);
+        tLRState = changeState(tLRState);
+    }
+    
+    @FXML
+    public void thermalKitchenClicked(){
+        changeThermalIcon(thermalKitchen, tKState);
+        tKState = changeState(tKState);
+    }
+    @FXML
+    public void thermalStorageClicked(){
+        changeThermalIcon(thermalStorage, tSState);
+        tSState = changeState(tSState);
+    }
+    @FXML
+    public void thermalBathroomClicked(){
+        changeThermalIcon(thermalBathroom, tBthState);
+        tBthState = changeState(tBthState);
+    }
+    @FXML
+    public void thermalBedroomClicked(){
+        changeThermalIcon(thermalBedroom, tBdState);
+        tBdState = changeState(tBdState);
+    }
+    
+    private void changeThermalIcon(ImageView img, boolean state){
+        Image on = new Image(getClass().getResource("resources/img/thermal-on.png").toString(), true);
+        Image off = new Image(getClass().getResource("resources/img/thermal-off.png").toString(), true);
+        
+        if (state) img.setImage(off);
+        else img.setImage(on);
+    }
+    
+    private boolean changeState(boolean state){
+        state = !state;
+        return state;
+    }
+    
+    @FXML
+    public void tempButtonClicked(){
+        if (!onOffState){
+            onOffState = changeState(onOffState);
+            tempOnOff.setText("Off");
+            tempInnerPanel.setDisable(false);
+            setTempIcons(1);
+        }else{
+            onOffState = changeState(onOffState);
+            tempOnOff.setText("On");
+            tempInnerPanel.setDisable(true);
+            setTempIcons(0);
+            temperature.setText("25");
+        }                   
+    }
+    
+    @FXML
+    public void plusTemp(){
+        if (Integer.parseInt(temperature.getText()) < 39){
+            temperature.setText(String.valueOf(Integer.parseInt(temperature.getText()) +1));
+            tempMinusButton.setDisable(false);
+        }else{
+            temperature.setText(String.valueOf(Integer.parseInt(temperature.getText()) +1));
+            tempPlusButton.setDisable(true);
+        }
+    }
+    
+    @FXML
+    public void minusTemp(){
+        if (Integer.parseInt(temperature.getText()) > 11){
+            temperature.setText(String.valueOf(Integer.parseInt(temperature.getText()) -1));
+            tempPlusButton.setDisable(false);
+        }else{
+            temperature.setText(String.valueOf(Integer.parseInt(temperature.getText()) -1));
+            tempMinusButton.setDisable(true);
+        }
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        setDateTime();
+    }
+    
+    private void setDateTime(){
         clock();
         setDate();
         setDay();
