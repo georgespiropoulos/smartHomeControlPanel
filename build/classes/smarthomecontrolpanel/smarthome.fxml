@@ -31,15 +31,15 @@
                      <children>
                         <VBox alignment="CENTER" layoutX="30.0" layoutY="-76.0" prefHeight="124.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label id="dayTxt" styleClass="date" text="Label" />
-                              <Label id="dateTxt" styleClass="date" text="Label" />
+                              <Label id="dayTxt" fx:id="day" styleClass="date" text="Label" />
+                              <Label id="dateTxt" fx:id="date" styleClass="date" text="Label" />
                            </children>
                         </VBox>
                      </children>
                   </AnchorPane>
                   <AnchorPane id="time" layoutX="190.0" prefHeight="47.0" prefWidth="160.0">
                      <children>
-                        <Label id="timeTxt" alignment="CENTER" layoutX="40.0" layoutY="15.0" prefHeight="47.0" prefWidth="160.0" styleClass="time" text="Time" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label id="timeTxt" fx:id="time" alignment="CENTER" layoutX="40.0" layoutY="15.0" prefHeight="47.0" prefWidth="160.0" styleClass="time" text="Time" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </children>
