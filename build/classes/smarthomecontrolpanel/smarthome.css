@@ -83,7 +83,7 @@
     -fx-font-size: 18; 
 }
 
-#lockButton:hover{
+#lockButton:selected{
     -fx-background-color: #FF0505;
     -fx-text-fill: white;
     -fx-font-family: "Roboto";

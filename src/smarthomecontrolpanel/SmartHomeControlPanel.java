@@ -12,7 +12,6 @@ public class SmartHomeControlPanel extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("smarthome.fxml"));
-        String geotom = "Hello geotom test!";
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("smarthome.css").toExternalForm());
         stage.setTitle("SmartHouse Control Panel");

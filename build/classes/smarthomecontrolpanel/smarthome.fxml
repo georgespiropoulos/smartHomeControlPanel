@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smarthomecontrolpanel.smarthomeController">
    <children>
       <Pane id="header" layoutX="10.0" layoutY="17.0" prefHeight="47.0" prefWidth="780.0">
          <children>
@@ -50,27 +50,27 @@
          <children>
             <AnchorPane id="retPos" prefHeight="70.0" prefWidth="190.0">
                <children>
-                  <Button id="retButton" disable="true" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Home" />
+                  <Button id="retButton" fx:id="homeButton" disable="true" mnemonicParsing="false" onAction="#homeClicked" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Home" />
                </children>
             </AnchorPane>
             <AnchorPane id="tempPos" layoutY="80.0" prefHeight="70.0" prefWidth="190.0">
                <children>
-                  <Button id="tempButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Temperature" />
+                  <Button id="tempButton" fx:id="tempButton" mnemonicParsing="false" onAction="#tempClicked" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Temperature" />
                </children>
             </AnchorPane>
             <AnchorPane id="lightsPos" layoutY="160.0" prefHeight="70.0" prefWidth="190.0">
                <children>
-                  <Button id="lightsButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Lights" />
+                  <Button id="lightsButton" fx:id="lightsButton" mnemonicParsing="false" onAction="#lightsClicked" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Lights" />
                </children>
             </AnchorPane>
             <AnchorPane id="doorsPos" layoutY="240.0" prefHeight="70.0" prefWidth="190.0">
                <children>
-                  <Button id="doorsButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Doors&#10;Windows" textAlignment="CENTER" wrapText="true" />
+                  <Button id="doorsButton" fx:id="doorsButton" mnemonicParsing="false" onAction="#doorsClicked" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Doors&#10;Windows" textAlignment="CENTER" wrapText="true" />
                </children>
             </AnchorPane>
          </children>
       </Pane>
-      <Pane id="homeLayout" layoutX="210.0" layoutY="80.0" prefHeight="360.0" prefWidth="550.0" visible="false">
+      <Pane id="homeLayout" fx:id="homePanel" layoutX="210.0" layoutY="80.0" prefHeight="360.0" prefWidth="550.0">
          <children>
             <Line id="northWallHorizontal1" endX="295.0" endY="80.0" startX="94.0" startY="80.0" />
             <Line id="northWallVertical" endX="-100.0" endY="60.0" layoutX="396.0" layoutY="80.0" startX="-100.0" />
@@ -94,7 +94,7 @@
             <Label id="gardenLbl" layoutX="357.0" layoutY="102.0" opacity="0.4" text="Garden" />
          </children>
       </Pane>
-      <Pane id="temperature" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
+      <Pane id="temperature" fx:id="tempPanel" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
          <children>
             <Button id="tempSystemButton" layoutX="430.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" text="On">
                <font>
@@ -265,7 +265,7 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="lights" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
+      <Pane id="lights" fx:id="lightsPanel" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
          <children>
             <Pane id="homeLayout" prefHeight="360.0" prefWidth="550.0">
                <children>
@@ -391,7 +391,7 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="doors" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0">
+      <Pane id="doors" fx:id="doorsPanel" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
          <children>
             <Pane id="homeLayout" prefHeight="360.0" prefWidth="550.0">
                <children>
