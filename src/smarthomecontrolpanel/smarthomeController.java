@@ -21,6 +21,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Rectangle;
 
 
 /**
@@ -136,6 +139,31 @@ public class smarthomeController implements Initializable {
     @FXML
     private ImageView backYardLight;
     private boolean byLightState = false;
+    
+    @FXML
+    private ToggleButton lockUnlock;
+    private boolean lockUnlockState = false;
+    
+    @FXML
+    private Ellipse mainHallWindow;
+    
+    @FXML
+    private Ellipse livingRoomWindow;
+    
+    @FXML
+    private Ellipse bedroomWindow;
+    
+    @FXML
+    private Ellipse storageWindow;
+    
+    @FXML
+    private Ellipse bathroomWindow;
+    
+    @FXML 
+    private Rectangle mainDoor;
+    
+    @FXML 
+    private Rectangle backDoor;
     
     @FXML
     public void homeClicked(){
@@ -347,6 +375,43 @@ public class smarthomeController implements Initializable {
             tempMinusButton.setDisable(true);
         }
     }
+    
+    @FXML
+    public void LockUnlockClicked(){
+        if (!lockUnlockState){
+            lockUnlockState = changeState(lockUnlockState);
+            lockUnlock.setText("Unlock");
+            setLockIcons(Color.web("#ff0505"));
+        }else{
+            lockUnlockState = changeState(lockUnlockState);
+            lockUnlock.setText("Lock");
+            setLockIcons(Color.web("#20cf27"));
+        }                   
+    }
+    
+    private void setLockIcons(Color color){
+        mainDoor.setFill(color);
+        mainDoor.setStroke(color);
+        
+        backDoor.setFill(color);
+        backDoor.setStroke(color);
+        
+        mainHallWindow.setFill(color);
+        mainHallWindow.setStroke(color);
+        
+        livingRoomWindow.setFill(color);
+        livingRoomWindow.setStroke(color);
+        
+        storageWindow.setFill(color);
+        storageWindow.setStroke(color);
+        
+        bathroomWindow.setFill(color);
+        bathroomWindow.setStroke(color);
+        
+        bedroomWindow.setFill(color);
+        bedroomWindow.setStroke(color);
+    }
+        
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

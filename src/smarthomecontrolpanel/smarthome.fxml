@@ -417,26 +417,22 @@
                   <Label id="gardenLbl" layoutX="357.0" layoutY="102.0" opacity="0.4" text="Garden" />
                   <AnchorPane layoutX="430.0" layoutY="10.0" prefHeight="45.0" prefWidth="120.0">
                      <children>
-                        <Button id="lockButton" layoutX="26.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" text="Lock" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Button>
+                        <ToggleButton id="lockButton" fx:id="lockUnlock" mnemonicParsing="false" onMouseClicked="#LockUnlockClicked" prefHeight="45.0" prefWidth="120.0" text="Lock" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
-                  <Rectangle id="front-door" arcHeight="5.0" arcWidth="5.0" fill="#20cf27" height="5.0" layoutX="288.0" layoutY="91.0" rotate="90.0" stroke="#20cf27" strokeType="INSIDE" width="13.0" />
+                  <Rectangle id="front-door" fx:id="mainDoor" arcHeight="5.0" arcWidth="5.0" fill="#20cf27" height="5.0" layoutX="288.0" layoutY="91.0" rotate="90.0" stroke="#20cf27" strokeType="INSIDE" width="13.0" />
                   <Rectangle id="storage-door" arcHeight="5.0" arcWidth="5.0" fill="#ff9a03" height="5.0" layoutX="274.0" layoutY="224.0" stroke="#ff9a03" strokeType="INSIDE" width="13.0" />
                   <Rectangle id="bathroom-door" arcHeight="5.0" arcWidth="5.0" fill="#20cf27" height="5.0" layoutX="170.0" layoutY="224.0" stroke="#20cf27" strokeType="INSIDE" width="13.0" />
                   <Rectangle id="bedroom-door" arcHeight="5.0" arcWidth="5.0" fill="#20cf27" height="5.0" layoutX="170.0" layoutY="163.0" stroke="#20cf27" strokeType="INSIDE" width="13.0" />
-                  <Ellipse id="livingRoom-window1" fill="#20cf27" layoutX="238.0" layoutY="79.0" radiusX="30.0" radiusY="2.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
-                  <Ellipse id="livingRoom-window2" fill="#20cf27" layoutX="377.0" layoutY="139.0" radiusX="30.0" radiusY="2.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Ellipse id="livingRoom-window1" fx:id="mainHallWindow" fill="#20cf27" layoutX="238.0" layoutY="79.0" radiusX="30.0" radiusY="2.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Ellipse id="livingRoom-window2" fx:id="livingRoomWindow" fill="#20cf27" layoutX="377.0" layoutY="139.0" radiusX="30.0" radiusY="2.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
                   <Ellipse id="livingRoom-window3" fill="#ff9a03" layoutX="459.0" layoutY="180.0" radiusX="30.0" radiusY="2.0" rotate="90.0" stroke="#ff9a03" strokeLineCap="ROUND" strokeType="INSIDE" />
                   <Ellipse id="kitchen-window" fill="#ff9a03" layoutX="377.0" layoutY="311.0" radiusX="30.0" radiusY="2.0" stroke="#ff9a03" strokeLineCap="ROUND" strokeType="INSIDE" />
-                  <Ellipse id="storage-window" fill="#20cf27" layoutX="238.0" layoutY="311.0" radiusX="30.0" radiusY="2.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Ellipse id="storage-window" fx:id="storageWindow" fill="#20cf27" layoutX="238.0" layoutY="311.0" radiusX="30.0" radiusY="2.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
                   <Ellipse id="bedroom-window1" fill="#ff9a03" layoutX="140.0" layoutY="79.0" radiusX="30.0" radiusY="2.0" stroke="#ff9a03" strokeLineCap="ROUND" strokeType="INSIDE" />
-                  <Ellipse id="bedroom-window2" fill="#20cf27" layoutX="92.0" layoutY="124.0" radiusX="30.0" radiusY="2.0" rotate="90.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
-                  <Ellipse id="bathroom-window" fill="#20cf27" layoutX="92.0" layoutY="270.0" radiusX="30.0" radiusY="2.0" rotate="90.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
-                  <Rectangle id="back-door" arcHeight="5.0" arcWidth="5.0" fill="#20cf27" height="5.0" layoutX="89.0" layoutY="193.0" rotate="90.0" stroke="#20cf27" strokeType="INSIDE" width="13.0" />
+                  <Ellipse id="bedroom-window2" fx:id="bedroomWindow" fill="#20cf27" layoutX="92.0" layoutY="124.0" radiusX="30.0" radiusY="2.0" rotate="90.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Ellipse id="bathroom-window" fx:id="bathroomWindow" fill="#20cf27" layoutX="92.0" layoutY="270.0" radiusX="30.0" radiusY="2.0" rotate="90.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Rectangle id="back-door" fx:id="backDoor" arcHeight="5.0" arcWidth="5.0" fill="#20cf27" height="5.0" layoutX="89.0" layoutY="193.0" rotate="90.0" stroke="#20cf27" strokeType="INSIDE" width="13.0" />
                </children>
             </Pane>
             <Pane id="footer" layoutY="364.0" prefHeight="25.0" prefWidth="550.0">
