@@ -75,7 +75,7 @@
     -fx-padding: -10;
 }
 
-#lockButton{
+#lockButton:selected{
     -fx-background-color: #20CF27;
     -fx-text-fill: white;
     -fx-font-family: "Roboto";
@@ -83,7 +83,7 @@
     -fx-font-size: 18; 
 }
 
-#lockButton:hover{
+#lockButton{
     -fx-background-color: #FF0505;
     -fx-text-fill: white;
     -fx-font-family: "Roboto";

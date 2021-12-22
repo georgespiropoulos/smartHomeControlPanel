@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smarthomecontrolpanel.smarthomeController">
    <children>
       <Pane id="header" layoutX="10.0" layoutY="17.0" prefHeight="47.0" prefWidth="780.0">
          <children>
@@ -31,15 +32,15 @@
                      <children>
                         <VBox alignment="CENTER" layoutX="30.0" layoutY="-76.0" prefHeight="124.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label id="dayTxt" styleClass="date" text="Label" />
-                              <Label id="dateTxt" styleClass="date" text="Label" />
+                              <Label id="dayTxt" fx:id="day" styleClass="date" text="Label" />
+                              <Label id="dateTxt" fx:id="date" styleClass="date" text="Label" />
                            </children>
                         </VBox>
                      </children>
                   </AnchorPane>
                   <AnchorPane id="time" layoutX="190.0" prefHeight="47.0" prefWidth="160.0">
                      <children>
-                        <Label id="timeTxt" alignment="CENTER" layoutX="40.0" layoutY="15.0" prefHeight="47.0" prefWidth="160.0" styleClass="time" text="Time" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label id="timeTxt" fx:id="time" alignment="CENTER" layoutX="40.0" layoutY="15.0" prefHeight="47.0" prefWidth="160.0" styleClass="time" text="Time" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </children>
@@ -50,27 +51,27 @@
          <children>
             <AnchorPane id="retPos" prefHeight="70.0" prefWidth="190.0">
                <children>
-                  <Button id="retButton" disable="true" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Home" />
+                  <Button id="retButton" fx:id="homeButton" disable="true" mnemonicParsing="false" onAction="#homeClicked" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Home" />
                </children>
             </AnchorPane>
             <AnchorPane id="tempPos" layoutY="80.0" prefHeight="70.0" prefWidth="190.0">
                <children>
-                  <Button id="tempButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Temperature" />
+                  <Button id="tempButton" fx:id="tempButton" mnemonicParsing="false" onAction="#tempClicked" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Temperature" />
                </children>
             </AnchorPane>
             <AnchorPane id="lightsPos" layoutY="160.0" prefHeight="70.0" prefWidth="190.0">
                <children>
-                  <Button id="lightsButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Lights" />
+                  <Button id="lightsButton" fx:id="lightsButton" mnemonicParsing="false" onAction="#lightsClicked" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Lights" />
                </children>
             </AnchorPane>
             <AnchorPane id="doorsPos" layoutY="240.0" prefHeight="70.0" prefWidth="190.0">
                <children>
-                  <Button id="doorsButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Doors&#10;Windows" textAlignment="CENTER" wrapText="true" />
+                  <Button id="doorsButton" fx:id="doorsButton" mnemonicParsing="false" onAction="#doorsClicked" prefHeight="70.0" prefWidth="190.0" styleClass="menuButton" text="Doors&#10;Windows" textAlignment="CENTER" wrapText="true" />
                </children>
             </AnchorPane>
          </children>
       </Pane>
-      <Pane id="homeLayout" layoutX="210.0" layoutY="80.0" prefHeight="360.0" prefWidth="550.0" visible="false">
+      <Pane id="homeLayout" fx:id="homePanel" layoutX="210.0" layoutY="80.0" prefHeight="360.0" prefWidth="550.0">
          <children>
             <Line id="northWallHorizontal1" endX="295.0" endY="80.0" startX="94.0" startY="80.0" />
             <Line id="northWallVertical" endX="-100.0" endY="60.0" layoutX="396.0" layoutY="80.0" startX="-100.0" />
@@ -94,14 +95,9 @@
             <Label id="gardenLbl" layoutX="357.0" layoutY="102.0" opacity="0.4" text="Garden" />
          </children>
       </Pane>
-      <Pane id="temperature" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
+      <Pane id="temperature" fx:id="tempPanel" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
          <children>
-            <Button id="tempSystemButton" layoutX="430.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" text="On">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <Pane id="homeLayout" prefHeight="360.0" prefWidth="550.0">
+            <Pane id="homeLayout" fx:id="tempInnerPanel" disable="true" prefHeight="360.0" prefWidth="550.0">
                <children>
                   <Line id="northWallHorizontal1" endX="295.0" endY="80.0" startX="94.0" startY="80.0" />
                   <Line id="northWallVertical" endX="-100.0" endY="60.0" layoutX="396.0" layoutY="80.0" startX="-100.0" />
@@ -127,12 +123,12 @@
                      <children>
                         <AnchorPane id="minusContainer" layoutY="5.0" prefHeight="40.0" prefWidth="40.0">
                            <children>
-                              <Button id="minusButton" layoutX="-6.0" layoutY="2.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="46.0" styleClass="tempAdjusters" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button id="minusButton" fx:id="tempMinusButton" layoutX="-6.0" layoutY="2.0" mnemonicParsing="false" onAction="#minusTemp" prefHeight="40.0" prefWidth="46.0" styleClass="tempAdjusters" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                         <AnchorPane id="addContainer" layoutX="94.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0">
                            <children>
-                              <Button id="plusButton" layoutX="-6.0" layoutY="8.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="tempAdjusters" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button id="plusButton" fx:id="tempPlusButton" layoutX="-6.0" layoutY="8.0" mnemonicParsing="false" onAction="#plusTemp" prefHeight="40.0" prefWidth="40.0" styleClass="tempAdjusters" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -153,12 +149,12 @@
                         </AnchorPane>
                         <AnchorPane layoutX="-7.0" layoutY="6.0" prefHeight="60.0" prefWidth="85.0">
                            <children>
-                              <ImageView fitHeight="47.0" fitWidth="24.0" layoutX="-3.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="thermometer" fitHeight="47.0" fitWidth="24.0" layoutX="-3.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@resources/img/thermometerDisabled.png" />
                                  </image>
                               </ImageView>
-                              <Label id="tempVal" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="4.0" prefHeight="60.0" prefWidth="60.0" text="25" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="4.0">
+                              <Label id="tempVal" fx:id="temperature" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="4.0" prefHeight="60.0" prefWidth="60.0" text="25" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="4.0">
                                  <font>
                                     <Font name="System Bold" size="40.0" />
                                  </font>
@@ -167,38 +163,37 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="432.0" layoutY="2.0" prefHeight="45.0" prefWidth="120.0" />
-                  <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="275.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="thermalStorage" fitHeight="21.0" fitWidth="18.0" layoutX="275.0" layoutY="294.0" onMouseClicked="#thermalStorageClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/thermal-disabled.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="440.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="thermalLivingRoom" fitHeight="21.0" fitWidth="18.0" layoutX="440.0" layoutY="142.0" onMouseClicked="#thermalLivingRoomClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/thermal-disabled.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="167.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="thermalBathroom" fitHeight="21.0" fitWidth="18.0" layoutX="167.0" layoutY="294.0" onMouseClicked="#thermalBathroomClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/thermal-disabled.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="94.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="thermalBedroom" fitHeight="21.0" fitWidth="18.0" layoutX="94.0" layoutY="150.0" onMouseClicked="#thermalBedroomClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/thermal-disabled.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="190.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="thermalMainHall1" fitHeight="21.0" fitWidth="18.0" layoutX="190.0" layoutY="82.0" onMouseClicked="#thermalMainHall1Clicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/thermal-disabled.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="440.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="thermalKitchen" fitHeight="21.0" fitWidth="18.0" layoutX="440.0" layoutY="227.0" onMouseClicked="#thermalKitchenClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/thermal-disabled.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="190.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="thermalMainHall2" fitHeight="21.0" fitWidth="18.0" layoutX="190.0" layoutY="208.0" onMouseClicked="#thermalMainHall2Clicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/thermal-disabled.png" />
                      </image>
@@ -263,9 +258,14 @@
                   </AnchorPane>
                </children>
             </Pane>
+            <AnchorPane layoutX="430.0" layoutY="10.0" prefHeight="45.0" prefWidth="120.0">
+               <children>
+                  <ToggleButton id="tempSystemButton" fx:id="tempOnOff" mnemonicParsing="false" onAction="#tempButtonClicked" prefHeight="45.0" prefWidth="120.0" text="On" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
          </children>
       </Pane>
-      <Pane id="lights" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
+      <Pane id="lights" fx:id="lightsPanel" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
          <children>
             <Pane id="homeLayout" prefHeight="360.0" prefWidth="550.0">
                <children>
@@ -289,32 +289,32 @@
                   <Label id="livingroomLbl" layoutX="344.0" layoutY="141.0" opacity="0.4" text="Living Room" />
                   <Label id="kitchenLbl" layoutX="356.0" layoutY="293.0" opacity="0.4" text="Kitchen" />
                   <Label id="gardenLbl" layoutX="357.0" layoutY="102.0" opacity="0.4" text="Garden" />
-                  <ImageView id="stirage-light" fitHeight="21.0" fitWidth="18.0" layoutX="232.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="stirage-light" fx:id="storageLight" fitHeight="21.0" fitWidth="18.0" layoutX="232.0" layoutY="257.0" onMouseClicked="#lightStorageClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="livingRoom-light" fitHeight="21.0" fitWidth="18.0" layoutX="377.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="livingRoom-light" fx:id="livingRoomLight" fitHeight="21.0" fitWidth="18.0" layoutX="377.0" layoutY="172.0" onMouseClicked="#lightLivingRoomClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="bathroom-light" fitHeight="21.0" fitWidth="18.0" layoutX="131.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="bathroom-light" fx:id="bathroomLight" fitHeight="21.0" fitWidth="18.0" layoutX="131.0" layoutY="257.0" onMouseClicked="#lightBathroomClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="bedroom-light" fitHeight="21.0" fitWidth="18.0" layoutX="131.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="bedroom-light" fx:id="bedroomLight" fitHeight="21.0" fitWidth="18.0" layoutX="131.0" layoutY="116.0" onMouseClicked="#lightBedroomClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="garden-light" fitHeight="21.0" fitWidth="18.0" layoutX="317.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="garden-light" fx:id="gardenLight" fitHeight="21.0" fitWidth="18.0" layoutX="317.0" layoutY="102.0" onMouseClicked="#lightGardenClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="kitchen-light" fitHeight="21.0" fitWidth="18.0" layoutX="377.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="kitchen-light" fx:id="kitchenLight" fitHeight="21.0" fitWidth="18.0" layoutX="377.0" layoutY="257.0" onMouseClicked="#lightKitchenClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
@@ -324,7 +324,7 @@
                         <Image url="@resources/img/lightbulb-unknown.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="backyard-light" fitHeight="21.0" fitWidth="18.0" layoutX="67.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="backyard-light" fx:id="backYardLight" fitHeight="21.0" fitWidth="18.0" layoutX="67.0" layoutY="183.0" onMouseClicked="#lightBackyardClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/img/lightbulb-off.png" />
                      </image>
@@ -391,7 +391,7 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="doors" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0">
+      <Pane id="doors" fx:id="doorsPanel" layoutX="210.0" layoutY="80.0" prefHeight="390.0" prefWidth="550.0" visible="false">
          <children>
             <Pane id="homeLayout" prefHeight="360.0" prefWidth="550.0">
                <children>
@@ -417,26 +417,22 @@
                   <Label id="gardenLbl" layoutX="357.0" layoutY="102.0" opacity="0.4" text="Garden" />
                   <AnchorPane layoutX="430.0" layoutY="10.0" prefHeight="45.0" prefWidth="120.0">
                      <children>
-                        <Button id="lockButton" layoutX="26.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" text="Lock" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Button>
+                        <ToggleButton id="lockButton" fx:id="lockUnlock" mnemonicParsing="false" onMouseClicked="#LockUnlockClicked" prefHeight="45.0" prefWidth="120.0" text="Lock" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
-                  <Rectangle id="front-door" arcHeight="5.0" arcWidth="5.0" fill="#20cf27" height="5.0" layoutX="288.0" layoutY="91.0" rotate="90.0" stroke="#20cf27" strokeType="INSIDE" width="13.0" />
+                  <Rectangle id="front-door" fx:id="mainDoor" arcHeight="5.0" arcWidth="5.0" fill="#20cf27" height="5.0" layoutX="288.0" layoutY="91.0" rotate="90.0" stroke="#20cf27" strokeType="INSIDE" width="13.0" />
                   <Rectangle id="storage-door" arcHeight="5.0" arcWidth="5.0" fill="#ff9a03" height="5.0" layoutX="274.0" layoutY="224.0" stroke="#ff9a03" strokeType="INSIDE" width="13.0" />
                   <Rectangle id="bathroom-door" arcHeight="5.0" arcWidth="5.0" fill="#20cf27" height="5.0" layoutX="170.0" layoutY="224.0" stroke="#20cf27" strokeType="INSIDE" width="13.0" />
                   <Rectangle id="bedroom-door" arcHeight="5.0" arcWidth="5.0" fill="#20cf27" height="5.0" layoutX="170.0" layoutY="163.0" stroke="#20cf27" strokeType="INSIDE" width="13.0" />
-                  <Ellipse id="livingRoom-window1" fill="#20cf27" layoutX="238.0" layoutY="79.0" radiusX="30.0" radiusY="2.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
-                  <Ellipse id="livingRoom-window2" fill="#20cf27" layoutX="377.0" layoutY="139.0" radiusX="30.0" radiusY="2.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Ellipse id="livingRoom-window1" fx:id="mainHallWindow" fill="#20cf27" layoutX="238.0" layoutY="79.0" radiusX="30.0" radiusY="2.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Ellipse id="livingRoom-window2" fx:id="livingRoomWindow" fill="#20cf27" layoutX="377.0" layoutY="139.0" radiusX="30.0" radiusY="2.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
                   <Ellipse id="livingRoom-window3" fill="#ff9a03" layoutX="459.0" layoutY="180.0" radiusX="30.0" radiusY="2.0" rotate="90.0" stroke="#ff9a03" strokeLineCap="ROUND" strokeType="INSIDE" />
                   <Ellipse id="kitchen-window" fill="#ff9a03" layoutX="377.0" layoutY="311.0" radiusX="30.0" radiusY="2.0" stroke="#ff9a03" strokeLineCap="ROUND" strokeType="INSIDE" />
-                  <Ellipse id="storage-window" fill="#20cf27" layoutX="238.0" layoutY="311.0" radiusX="30.0" radiusY="2.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Ellipse id="storage-window" fx:id="storageWindow" fill="#20cf27" layoutX="238.0" layoutY="311.0" radiusX="30.0" radiusY="2.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
                   <Ellipse id="bedroom-window1" fill="#ff9a03" layoutX="140.0" layoutY="79.0" radiusX="30.0" radiusY="2.0" stroke="#ff9a03" strokeLineCap="ROUND" strokeType="INSIDE" />
-                  <Ellipse id="bedroom-window2" fill="#20cf27" layoutX="92.0" layoutY="124.0" radiusX="30.0" radiusY="2.0" rotate="90.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
-                  <Ellipse id="bathroom-window" fill="#20cf27" layoutX="92.0" layoutY="270.0" radiusX="30.0" radiusY="2.0" rotate="90.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
-                  <Rectangle id="back-door" arcHeight="5.0" arcWidth="5.0" fill="#20cf27" height="5.0" layoutX="89.0" layoutY="193.0" rotate="90.0" stroke="#20cf27" strokeType="INSIDE" width="13.0" />
+                  <Ellipse id="bedroom-window2" fx:id="bedroomWindow" fill="#20cf27" layoutX="92.0" layoutY="124.0" radiusX="30.0" radiusY="2.0" rotate="90.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Ellipse id="bathroom-window" fx:id="bathroomWindow" fill="#20cf27" layoutX="92.0" layoutY="270.0" radiusX="30.0" radiusY="2.0" rotate="90.0" stroke="#20cf27" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Rectangle id="back-door" fx:id="backDoor" arcHeight="5.0" arcWidth="5.0" fill="#20cf27" height="5.0" layoutX="89.0" layoutY="193.0" rotate="90.0" stroke="#20cf27" strokeType="INSIDE" width="13.0" />
                </children>
             </Pane>
             <Pane id="footer" layoutY="364.0" prefHeight="25.0" prefWidth="550.0">

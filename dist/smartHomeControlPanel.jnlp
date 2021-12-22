@@ -16,7 +16,7 @@
     <jar href="lib\javafx.media.jar" size="270594" download="eager" />
     <jar href="lib\javafx.swing.jar" size="119848" download="eager" />
     <jar href="lib\javafx.web.jar" size="712651" download="eager" />
-    <jar href="smartHomeControlPanel.jar" size="71344" download="eager" />
+    <jar href="smartHomeControlPanel.jar" size="75415" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="smarthomecontrolpanel.SmartHomeControlPanel"  name="smartHomeControlPanel" />
   <update check="always"/>
